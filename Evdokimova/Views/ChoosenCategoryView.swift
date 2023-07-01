@@ -14,7 +14,6 @@ struct ChoosenCategoryView<DetailModifier: ViewModifier>: View {
     var gridLayoutRows = [GridItem(.flexible())]
     let detailModifier: DetailModifier
     
-    
     var body: some View {
         ScrollView {
             LazyHGrid(rows: gridLayoutRows) {

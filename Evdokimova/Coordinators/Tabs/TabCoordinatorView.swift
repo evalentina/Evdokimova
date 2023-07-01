@@ -30,7 +30,6 @@ struct TabCoordinatorView: View {
                     
             }
             .environmentObject(viewModel)
-            .navigationTitle("Title")
         }
        
     }

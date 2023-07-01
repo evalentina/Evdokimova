@@ -13,42 +13,56 @@ struct CartView: View {
     @EnvironmentObject var viewModel: CartViewModel
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: gridLayout, alignment: .center, spacing: 8) {
-                ForEach(Array(viewModel.dishesInCart.keys), id: \.self) { dish in
-                    if (viewModel.dishesInCart[dish] ?? 0) > 0 {
-                        HStack {
-                            AsyncImage(url: URL(string: dish.imageURL)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .frame(maxWidth: 100)
-                            .frame(height: 150)
-                            
-                            .overlay(
-                                Text(dish.name)
-                                    .font(.callout)
-                                    .foregroundColor(.black)
-                                    .padding(.top, 12)
-                                    .padding(.leading, 16), alignment: .topLeading)
-                            
-                            Button {
-                                viewModel.plusButton(dish: dish)
-                            } label: {
-                                Text("+")
-                            }
-                            Text(String(viewModel.dishesInCart[dish] ?? 0))
-                            Button {
-                                viewModel.minusButton(dish: dish)
-                            } label: {
-                                Text("-")
+        CustomNavigationBarContainer {
+            ScrollView {
+                LazyVGrid(columns: gridLayout, alignment: .center, spacing: 8) {
+                    ForEach(Array(viewModel.dishesInCart.keys), id: \.self) { dish in
+                        if (viewModel.dishesInCart[dish] ?? 0) > 0 {
+                            HStack {
+                                AsyncImage(url: URL(string: dish.imageURL)) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .frame(maxWidth: 100)
+                                .frame(height: 150)
+                                
+                                .overlay(
+                                    Text(dish.name)
+                                        .font(.callout)
+                                        .foregroundColor(.black)
+                                        .padding(.top, 12)
+                                        .padding(.leading, 16), alignment: .topLeading)
+                                
+                                Button {
+                                    viewModel.plusButton(dish: dish)
+                                } label: {
+                                    Text("+")
+                                }
+                                Text(String(viewModel.dishesInCart[dish] ?? 0))
+                                Button {
+                                    viewModel.minusButton(dish: dish)
+                                } label: {
+                                    Text("-")
+                                }
                             }
                         }
                     }
                 }
+                Button {
+                    
+                } label: {
+                    Text("Оплатить \(viewModel.totalPrice)")
+                        .padding()
+                        .background(.black)
+                        .foregroundStyle(.white)
+                        .clipShape(Capsule())
+                }
+            }
+            .onAppear {
+                viewModel.countTotalPrice()
             }
         }
     }

@@ -44,7 +44,7 @@ struct DishDetailView: View {
                         Text("\(dish.price)")
                         Text(dish.description)
                         
-                        Button {                            
+                        Button {
                             cartViewModel.addToCart(dish: dish)
                         } label: {
                             Text("Добавить в корзину")
@@ -61,6 +61,7 @@ struct DishDetailView: View {
             .frame(maxWidth: .infinity, maxHeight: 500)
         }
         //.frame(width: .infinity, height: 500)
+        .frame(maxWidth: .infinity, maxHeight: 400)
         .cornerRadius(15)
         .background(Color.blue)
         .padding(.horizontal, 16)
@@ -86,8 +87,7 @@ struct ClearBackgroundView: UIViewRepresentable {
     private class InnerView: UIView {
         override func didMoveToWindow() {
             super.didMoveToWindow()
-            // ?
-            superview?.superview?.superview?.superview?.superview?.superview?.superview?.backgroundColor = .clear
+            superview?.superview?.backgroundColor = .clear
         }
         
     }

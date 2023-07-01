@@ -11,12 +11,14 @@ struct MainViewCoordinatorView: View {
     @ObservedObject var coordinator: MainViewCoordinatorObject
     var body: some View {
         NavigationView {
-            MainView(viewModel: coordinator.viewModel)
-                .navigation(item: $coordinator.choosenCategoryViewModel) { viewModel in
-                    choosenCategoryView(viewModel)
-                        .navigationTitle(viewModel.category.name)
-                    
-                }
+            CustomNavigationBarContainer {
+                MainView(viewModel: coordinator.viewModel)
+                    .navigation(item: $coordinator.choosenCategoryViewModel) { viewModel in
+                        choosenCategoryView(viewModel)
+                            .navigationTitle(viewModel.category.name)
+                        
+                    }
+            }
         }
     }
     
@@ -24,10 +26,9 @@ struct MainViewCoordinatorView: View {
     private func choosenCategoryView(_ viewModel: ChoosenCategoryViewModel) -> some View {
         ChoosenCategoryView(viewModel: viewModel,
                             detailModifier: FullScreenCoverModifier(item: $coordinator.detailDishViewModel) { viewModel in
-                NavigationView {
+                
                     DishDetailView(viewModel: viewModel)
-                        
-                }
+                        .background(ClearBackgroundView())       
             }
         )
     }
