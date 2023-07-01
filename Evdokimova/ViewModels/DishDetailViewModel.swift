@@ -9,17 +9,17 @@ import Foundation
 
 class DishDetailViewModel: ObservableObject, Identifiable {
     
-    private unowned let coordinator: MainViewCoordinatorObject?
-    @Published var dish: Dish?
+    private unowned let coordinator: MainViewCoordinatorObject
+    @Published var dish: Dish
     @Published var dishesInCart: [Dish : Int] = [:]
     
-    init(dish: Dish? = nil, coordinator: MainViewCoordinatorObject? = nil) {
+    init(dish: Dish, coordinator: MainViewCoordinatorObject) {
         self.dish = dish
         self.coordinator = coordinator
     }
     
     func close() {
-        self.coordinator?.closeDishDetail()
+        self.coordinator.closeDishDetail()
     }
     /*
     func addToCart() {

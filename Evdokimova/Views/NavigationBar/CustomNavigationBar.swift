@@ -43,26 +43,3 @@ struct CustomNavigationBar_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
-
-struct CustomNavigationBarContainer<Content: View>: View {
-    let content: Content
-    
-    init(@ViewBuilder content: () -> Content) {
-        self.content = content()
-    }
-    var body: some View {
-        VStack {
-            CustomNavigationBar()
-            content
-        }
-    }
-}
-
-struct CustomNavigationBarContainer_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomNavigationBarContainer {
-            Color.black
-        }
-            .previewLayout(.sizeThatFits)
-    }
-}

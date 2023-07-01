@@ -36,6 +36,7 @@ struct TabViewItem: View {
         VStack {
             type.image.renderingMode(.template)
             type.text
+                .textStyle(weight: .medium, size: 10)
         }
     }
 }

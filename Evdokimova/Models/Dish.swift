@@ -41,6 +41,8 @@ extension Teg: CaseIterable {
 }
 
 extension Dish: Identifiable {
+    
+    // MARK: Mock data for preview
     static var dishMock : Dish {
         Dish(id: 1,
             name: "Рис с овощами",
