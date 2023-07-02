@@ -10,18 +10,26 @@ import Combine
 
 class MainViewModel: ObservableObject {
     
-    private unowned let coordinator: MainViewCoordinatorObject
+    // MARK: Properties
     
     @Published var categories = Categories(сategories: [])
+    
+    private unowned let coordinator: MainViewCoordinatorObject
     var categoriesSubscription: AnyCancellable?
+    
+    // MARK: Initialization
     
     init(coordinator: MainViewCoordinatorObject) {
         self.coordinator = coordinator
     }
     
+    // MARK: Open selected category
+    
     func open(_ category: СategoryModel) {
         self.coordinator.open(category: category)
     }
+    
+    // MARK: Get categories using NetworkManager
     
     func getCategories() async {
         guard let url = URL(string: "https://run.mocky.io/v3/058729bd-1402-4578-88de-265481fd7d54") else { return }

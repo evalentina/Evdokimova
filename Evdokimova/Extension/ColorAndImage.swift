@@ -16,5 +16,9 @@ extension Color {
     static var buttonColor: Color {
         return Color("ButtonColor")
     }
+    
+    static var cartButtonsColor: Color {
+        return Color("CartColor")
+    }
 
 }

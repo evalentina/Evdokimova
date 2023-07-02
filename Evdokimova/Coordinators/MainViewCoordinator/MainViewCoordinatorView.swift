@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct MainViewCoordinatorView: View {
+    
+    // MARK: Properties
+    
     @ObservedObject var coordinator: MainViewCoordinatorObject
+    
     var body: some View {
+        
         NavigationView {
             CustomNavigationBarContainer {
                 MainView(viewModel: coordinator.viewModel)
@@ -22,9 +27,11 @@ struct MainViewCoordinatorView: View {
         }
     }
     
+    // MARK: Open the selected category, after which you can open the full screen cover with the full description of the dish
+    
     @ViewBuilder
-    private func choosenCategoryView(_ viewModel: ChoosenCategoryViewModel) -> some View {
-        ChoosenCategoryView(viewModel: viewModel,
+    private func choosenCategoryView(_ viewModel: SelectedCategoryViewModel) -> some View {
+        SelectedCategoryView(viewModel: viewModel,
                             detailModifier: FullScreenCoverModifier(item: $coordinator.detailDishViewModel) { viewModel in
                 
                     DishDetailView(viewModel: viewModel)

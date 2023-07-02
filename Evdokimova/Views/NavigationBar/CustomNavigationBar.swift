@@ -8,33 +8,52 @@
 import SwiftUI
 
 struct CustomNavigationBar: View {
+    
     var body: some View {
+        
         HStack {
-            VStack {
-                HStack {
-                    Image("map")
-                    Text(getCity())
-                }
-                Text(Date.now, format: .dateTime.day().month().year())
-            }
+            
+            cityAndDate
+            
             Spacer()
-            Image("User")
-                .resizable()
-                  .frame(width: 44, height: 44)
-                  .clipShape(Circle())
+            
+            ReusableUserImage()
         }
-        .padding(.horizontal, 16)
         .frame(maxWidth: .infinity)
+        .padding(.horizontal, 16)
     }
 }
 
 extension CustomNavigationBar {
+    
+    // MARK: City and date on the local device
+    
+    var cityAndDate: some View {
+        HStack(alignment: .top, spacing: 4) {
+            Image(ImageNames.map.rawValue)
+                .frame(width: 24, height: 24)
+            
+            VStack(spacing: 4) {
+
+                Text(getCity())
+                    .textStyle(weight: .medium, size: 18)
+                
+                Text(Date.now, format: .dateTime.day().month().year())
+                    .textStyle(weight: .regular, size: 14)
+                    .foregroundColor(.black.opacity(0.5))
+            }
+        }
+        
+    }
+
+    // MARK: Get a city using a time zone
+    
     func getCity() -> String {
         let timeZone = String(TimeZone.current.identifier)
         let city = timeZone.split(separator: "/")
         return String(city[1])
     }
-
+    
 }
 
 struct CustomNavigationBar_Previews: PreviewProvider {
@@ -43,3 +62,5 @@ struct CustomNavigationBar_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+
+

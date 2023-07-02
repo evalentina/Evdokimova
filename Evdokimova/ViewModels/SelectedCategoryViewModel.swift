@@ -8,20 +8,26 @@
 import Foundation
 import Combine
 
-class ChoosenCategoryViewModel: ObservableObject {
+class SelectedCategoryViewModel: ObservableObject {
+    
+    // MARK: Properties
     
     @Published var category : СategoryModel
     @Published var dishes: Dishes = Dishes(dishes: [])
-    @Published var choosenTeg: Teg = .всеМеню
+    @Published var selectedTag: Teg = .всеМеню
     @Published var filteredDishes = [Dish]()
     
     private unowned let coordinator: MainViewCoordinatorObject
     var dishesSubscription: AnyCancellable?
     
+    // MARK: Initialization
+    
     init(category: СategoryModel, coordinator: MainViewCoordinatorObject) {
         self.category = category
         self.coordinator = coordinator
     }
+    
+    // MARK: Get dishes using NetworkManager
     
     func getDishes() {
         guard let url = URL(string: "https://run.mocky.io/v3/aba7ecaa-0a70-453b-b62d-0e326c859b3b") else { return }
@@ -34,8 +40,10 @@ class ChoosenCategoryViewModel: ObservableObject {
             })
     }
     
+    // MARK: Show data depending on the selected tag
+    
     func filterData() {
-        switch choosenTeg {
+        switch selectedTag {
         case .всеМеню:
             self.filteredDishes = dishes.dishes.filter { $0.tegs.contains(Teg.всеМеню)}
         case .сРисом:
@@ -46,6 +54,8 @@ class ChoosenCategoryViewModel: ObservableObject {
             self.filteredDishes = dishes.dishes.filter { $0.tegs.contains(Teg.салаты)}
         }
     }
+    
+    // MARK: Open information about the selected dish
     
     func openDishDetail(dish: Dish) {
         self.coordinator.openDishDetail(for: dish)

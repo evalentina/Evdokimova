@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum SFProDisplay: String {
+    
     case medium = "SFProDisplay-Medium"
     case regular = "SFProDisplay-Regular"
     case semibold = "SFProDisplay-Semibold"

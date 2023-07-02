@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct CustomNavigationBarContainer<Content: View>: View {
+    
+    // MARK: Stored Properties
+    
     let content: Content
+    
+    // MARK: Initialization
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()

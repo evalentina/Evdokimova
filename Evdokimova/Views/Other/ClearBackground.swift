@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ClearBackgroundView: UIViewRepresentable {
+    
     func makeUIView(context: Context) -> UIView {
         return InnerView()
     }

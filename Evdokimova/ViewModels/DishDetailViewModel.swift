@@ -9,23 +9,24 @@ import Foundation
 
 class DishDetailViewModel: ObservableObject, Identifiable {
     
-    private unowned let coordinator: MainViewCoordinatorObject
+    // MARK: Properties
+    
     @Published var dish: Dish
     @Published var dishesInCart: [Dish : Int] = [:]
+    
+    private unowned let coordinator: MainViewCoordinatorObject
+    
+    // MARK: Initialization
     
     init(dish: Dish, coordinator: MainViewCoordinatorObject) {
         self.dish = dish
         self.coordinator = coordinator
     }
     
+    // MARK: Close dish detail view
+    
     func close() {
         self.coordinator.closeDishDetail()
     }
-    /*
-    func addToCart() {
-        guard let dish = dish else { return }
-        dishesInCart[dish, default: 0] += 1
-    }
-     */
 }
 

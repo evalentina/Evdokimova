@@ -9,13 +9,16 @@ import SwiftUI
 
 struct MainView: View {
     
-    // MARK: Variables
+    // MARK: Properties
+    
     @ObservedObject var viewModel : MainViewModel
     
-    // MARK: GridItem Variable
+    // MARK: GridItem Properties
+    
     var gridLayout = [GridItem()]
     
     var body: some View {
+        
         ScrollView {
             LazyVGrid(columns: gridLayout, alignment: .center, spacing: 8) {
                 ForEach(viewModel.categories.сategories) { category in
@@ -41,6 +44,7 @@ struct MainView: View {
 private extension MainView {
     
     // MARK: ViewBuilder for the category name
+    
     @ViewBuilder
     func categoryName(_ text: String) -> some View {
         Text(text)
@@ -53,15 +57,10 @@ private extension MainView {
     }
     
     // MARK: ViewBuilder for the category image
+    
     @ViewBuilder
     func categoryImage(_ imageURLString: String) -> some View {
-        AsyncImage(url: URL(string: imageURLString)) { image in
-            image
-                .resizable()
-                .scaledToFill()
-        } placeholder: {
-            ProgressView()
-        }
+        AsyncImageReusableView(imageURLString: imageURLString)
         .frame(maxWidth: .infinity)
         .frame(height: 150)
     }
