@@ -108,12 +108,7 @@ extension CartView {
         Button {
             
         } label: {
-            Text("Оплатить \(viewModel.totalPrice.formattedWithSeparator  ) ₽")
-                .textStyle(weight: .medium, size: 16)
-                .frame(maxWidth: .infinity, maxHeight: 48)
-                .background(Color.blueColor)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            ReusableButton(textOnTheButton: "Оплатить \(viewModel.totalPrice.formattedWithSeparator  ) ₽")
         }
     }
     

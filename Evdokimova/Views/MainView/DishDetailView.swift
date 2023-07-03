@@ -59,12 +59,7 @@ extension DishDetailView {
         Button {
             cartViewModel.addToCart(dish: viewModel.dish)
         } label: {
-            Text("Добавить в корзину")
-                .textStyle(weight: .medium, size: 16)
-                .frame(maxWidth: .infinity, maxHeight: 48)
-                .background(Color.blueColor)
-                .foregroundStyle(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+            ReusableButton(textOnTheButton: "Добавить в корзину")
         }
     }
     
@@ -119,4 +114,3 @@ struct DishDetailview_Previews: PreviewProvider {
             .environmentObject(CartViewModel())
     }
 }
-

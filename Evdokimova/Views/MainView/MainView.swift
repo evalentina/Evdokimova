@@ -37,6 +37,7 @@ struct MainView: View {
                 await viewModel.getCategories()
             }
             .padding(.horizontal, 16)
+            .padding(.vertical, 8)
         }
     }
 }
@@ -62,7 +63,7 @@ private extension MainView {
     func categoryImage(_ imageURLString: String) -> some View {
         AsyncImageReusableView(imageURLString: imageURLString)
         .frame(maxWidth: .infinity)
-        .frame(height: 150)
+        .frame(height: 148)
     }
 }
 

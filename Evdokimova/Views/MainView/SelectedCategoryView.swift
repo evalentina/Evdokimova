@@ -67,7 +67,7 @@ extension SelectedCategoryView {
     var tagsOfDishes: some View {
         HStack {
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHGrid(rows: gridLayoutRows, spacing: 10) {
+                LazyHGrid(rows: gridLayoutRows, spacing: 8) {
                     ForEach(Teg.allCases, id: \.self) { item in
                         Button {
                             viewModel.selectedTag = item
@@ -85,7 +85,7 @@ extension SelectedCategoryView {
                 }
             }
         }
-        .padding(.vertical, 5)
+        .padding(.vertical, 8)
         .background(Color.white)
         
     }
@@ -97,42 +97,55 @@ extension SelectedCategoryView {
         LazyVGrid(columns: gridLayoutColumns, alignment: .center, spacing: 8, pinnedViews: [.sectionHeaders]) {
             
             //MARK: Makes tags pinned to the top
-            Section(header: tagsOfDishes) {
+            Section {
                 
                 ForEach(viewModel.filteredDishes) { dish in
-                    Button {
-                        viewModel.openDishDetail(dish: dish)
-                    } label : {
-                        VStack {
-                            
-                            GeometryReader { geo in
-                                // MARK: Geometry Reader modifies alignment, therefore, an additional stack is needed
-                                
-                                VStack(spacing: 0) {
-                                    AsyncImageReusableView(imageURLString: dish.imageURL)
-                                }
-                                .frame(width: geo.size.width,
-                                       height: geo.size.height,
-                                       alignment: .center)
-                            }
-                            .clipped()
-                            .aspectRatio(1, contentMode: .fit)
-                            .padding()
-                            .background(Color.buttonColor.cornerRadius(10))
-                            
-                            Text(dish.name)
-                                .textStyle(weight: .regular, size: 14)
-                                .foregroundColor(.black)
-                                .multilineTextAlignment(.leading)
-                                .frame(height: 35, alignment: .top)
-                        }
-                        
-                    }
-                    .modifier(detailModifier)
+                    
+                    dishesView(dish)
                 }
+                
+            } header: {
+
+                tagsOfDishes
+                    .padding(.trailing, -16)
             }
+            
         }
-        .padding(.horizontal ,16)
+        .padding(.horizontal , 16)
+    }
+    
+    
+    @ViewBuilder
+    func dishesView(_ dish: Dish) -> some View {
+        Button {
+            viewModel.openDishDetail(dish: dish)
+        } label : {
+            VStack(alignment: .leading) {
+                
+                GeometryReader { geo in
+                    // MARK: Geometry Reader modifies alignment, therefore, an additional stack is needed
+                    
+                    VStack(spacing: 0) {
+                        AsyncImageReusableView(imageURLString: dish.imageURL)
+                    }
+                    .frame(width: geo.size.width,
+                           height: geo.size.height,
+                           alignment: .center)
+                }
+                .clipped()
+                .aspectRatio(1, contentMode: .fit)
+                .padding()
+                .background(Color.buttonColor.cornerRadius(10))
+                
+                Text(dish.name)
+                    .textStyle(weight: .regular, size: 14)
+                    .foregroundColor(.black)
+                    .multilineTextAlignment(.leading)
+                    .frame(height: 35, alignment: .topLeading)
+            }
+            
+        }
+        .modifier(detailModifier)
         
     }
 }

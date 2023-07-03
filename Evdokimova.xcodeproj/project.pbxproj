@@ -30,6 +30,7 @@
 		C844166B2A4EE18200E90648 /* DishDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844166A2A4EE18200E90648 /* DishDetailViewModel.swift */; };
 		C844166D2A4EE3F800E90648 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844166C2A4EE3F800E90648 /* Modifier.swift */; };
 		C844166F2A4F139F00E90648 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844166E2A4F139F00E90648 /* CartViewModel.swift */; };
+		C86753282A52B176008DEEDF /* ReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86753272A52B176008DEEDF /* ReusableButton.swift */; };
 		C870BBF92A5163C000217568 /* ReusableAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C870BBF82A5163C000217568 /* ReusableAsyncImage.swift */; };
 		C870BBFB2A51650400217568 /* ReusableDishPriceAndWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C870BBFA2A51650400217568 /* ReusableDishPriceAndWeightView.swift */; };
 		C870BBFD2A516F0400217568 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C870BBFC2A516F0400217568 /* Image.swift */; };
@@ -70,6 +71,7 @@
 		C844166A2A4EE18200E90648 /* DishDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailViewModel.swift; sourceTree = "<group>"; };
 		C844166C2A4EE3F800E90648 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		C844166E2A4F139F00E90648 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		C86753272A52B176008DEEDF /* ReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableButton.swift; sourceTree = "<group>"; };
 		C870BBF82A5163C000217568 /* ReusableAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableAsyncImage.swift; sourceTree = "<group>"; };
 		C870BBFA2A51650400217568 /* ReusableDishPriceAndWeightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableDishPriceAndWeightView.swift; sourceTree = "<group>"; };
 		C870BBFC2A516F0400217568 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				C870BBF82A5163C000217568 /* ReusableAsyncImage.swift */,
 				C870BBFA2A51650400217568 /* ReusableDishPriceAndWeightView.swift */,
 				C870BBFE2A51718D00217568 /* ReusableImage.swift */,
+				C86753272A52B176008DEEDF /* ReusableButton.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				C84416432A4CC32100E90648 /* TabCoordinatorObject.swift in Sources */,
 				C84416592A4CE4AA00E90648 /* MainViewCoordinatorView.swift in Sources */,
 				C870BBFB2A51650400217568 /* ReusableDishPriceAndWeightView.swift in Sources */,
+				C86753282A52B176008DEEDF /* ReusableButton.swift in Sources */,
 				C8CF63782A5075A300E84A64 /* ClearBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
