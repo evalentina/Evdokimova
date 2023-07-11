@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80D49852A5D4C9D00D2F41D /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D49842A5D4C9D00D2F41D /* CategoryService.swift */; };
+		C80D49872A5D4CF000D2F41D /* DishesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80D49862A5D4CF000D2F41D /* DishesService.swift */; };
 		C84416322A4CBECF00E90648 /* EvdokimovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84416312A4CBECF00E90648 /* EvdokimovaApp.swift */; };
 		C84416362A4CBED000E90648 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84416352A4CBED000E90648 /* Assets.xcassets */; };
 		C84416392A4CBED000E90648 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84416382A4CBED000E90648 /* Preview Assets.xcassets */; };
@@ -44,11 +46,11 @@
 		C8CF63722A5062CD00E84A64 /* ColorAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CF63712A5062CD00E84A64 /* ColorAndImage.swift */; };
 		C8CF63742A50653B00E84A64 /* CustomNavigationBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CF63732A50653B00E84A64 /* CustomNavigationBarContainer.swift */; };
 		C8CF63782A5075A300E84A64 /* ClearBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CF63772A5075A300E84A64 /* ClearBackground.swift */; };
-		C8ECC64C2A5D407F000CE9ED /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECC64B2A5D407F000CE9ED /* CategoriesService.swift */; };
-		C8ECC64E2A5D4097000CE9ED /* DishesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ECC64D2A5D4097000CE9ED /* DishesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C80D49842A5D4C9D00D2F41D /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		C80D49862A5D4CF000D2F41D /* DishesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesService.swift; sourceTree = "<group>"; };
 		C844162E2A4CBECF00E90648 /* Evdokimova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Evdokimova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84416312A4CBECF00E90648 /* EvdokimovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvdokimovaApp.swift; sourceTree = "<group>"; };
 		C84416352A4CBED000E90648 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,8 +90,6 @@
 		C8CF63712A5062CD00E84A64 /* ColorAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAndImage.swift; sourceTree = "<group>"; };
 		C8CF63732A50653B00E84A64 /* CustomNavigationBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarContainer.swift; sourceTree = "<group>"; };
 		C8CF63772A5075A300E84A64 /* ClearBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBackground.swift; sourceTree = "<group>"; };
-		C8ECC64B2A5D407F000CE9ED /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
-		C8ECC64D2A5D4097000CE9ED /* DishesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,8 +288,8 @@
 		C8ECC64A2A5D405C000CE9ED /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C8ECC64B2A5D407F000CE9ED /* CategoriesService.swift */,
-				C8ECC64D2A5D4097000CE9ED /* DishesService.swift */,
+				C80D49842A5D4C9D00D2F41D /* CategoryService.swift */,
+				C80D49862A5D4CF000D2F41D /* DishesService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -369,16 +369,16 @@
 			files = (
 				C8CF63402A4F648900E84A64 /* CustomNavigationBar.swift in Sources */,
 				C870BBFF2A51718D00217568 /* ReusableImage.swift in Sources */,
+				C80D49852A5D4C9D00D2F41D /* CategoryService.swift in Sources */,
 				C84416622A4CEE9400E90648 /* SelectedCategoryViewModel.swift in Sources */,
 				C84416692A4EE11300E90648 /* DishDetailView.swift in Sources */,
 				C8CF63702A50582D00E84A64 /* Font.swift in Sources */,
 				C84416492A4CC39F00E90648 /* MainView.swift in Sources */,
 				C8CF63742A50653B00E84A64 /* CustomNavigationBarContainer.swift in Sources */,
 				C8CF63722A5062CD00E84A64 /* ColorAndImage.swift in Sources */,
-				C8ECC64C2A5D407F000CE9ED /* CategoriesService.swift in Sources */,
 				C870BBF92A5163C000217568 /* ReusableAsyncImage.swift in Sources */,
 				C84416462A4CC34E00E90648 /* TabCoordinatorView.swift in Sources */,
-				C8ECC64E2A5D4097000CE9ED /* DishesService.swift in Sources */,
+				C80D49872A5D4CF000D2F41D /* DishesService.swift in Sources */,
 				C844166D2A4EE3F800E90648 /* Modifier.swift in Sources */,
 				C844164B2A4CC3B300E90648 /* SearchView.swift in Sources */,
 				C8CB219C2A50DD7600C48872 /* IntSeparator.swift in Sources */,

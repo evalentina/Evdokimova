@@ -1,5 +1,5 @@
 //
-//  CategoriesService.swift
+//  DishesServ.swift
 //  Evdokimova
 //
 //  Created by Валентина Евдокимова on 11.07.2023.
@@ -32,7 +32,4 @@ class CategoriesService {
             })
     }
 }
-
-
-
 
