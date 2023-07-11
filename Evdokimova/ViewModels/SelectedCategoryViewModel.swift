@@ -18,17 +18,27 @@ class SelectedCategoryViewModel: ObservableObject {
     @Published var filteredDishes = [Dish]()
     
     private unowned let coordinator: MainViewCoordinatorObject
-    var dishesSubscription: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
+    private var dishesService = DishesService()
     
     // MARK: Initialization
     
     init(category: СategoryModel, coordinator: MainViewCoordinatorObject) {
         self.category = category
         self.coordinator = coordinator
+        addSubscribers()
+    }
+    
+    private func addSubscribers() {
+        dishesService.$dishes
+            .sink { [weak self] returnedDishes in
+                self?.dishes = returnedDishes
+                self?.filteredDishes = returnedDishes.dishes
+            }.store(in: &cancellables)
     }
     
     // MARK: Get dishes using NetworkManager
-    
+    /*
     func getDishes() {
         guard let url = URL(string: "https://run.mocky.io/v3/aba7ecaa-0a70-453b-b62d-0e326c859b3b") else { return }
         dishesSubscription = NetworkManager.downdlowad(url: url)
@@ -39,6 +49,7 @@ class SelectedCategoryViewModel: ObservableObject {
                 self?.dishesSubscription?.cancel()
             })
     }
+     */
     
     // MARK: Show data depending on the selected tag
     

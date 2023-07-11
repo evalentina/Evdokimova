@@ -15,7 +15,7 @@ class MainViewCoordinatorObject: ObservableObject {
     @Published var choosenCategoryViewModel: SelectedCategoryViewModel?
     @Published var detailDishViewModel: DishDetailViewModel?
 
-    private unowned let parentCoordinator: TabCoordinatorObject
+    private unowned let  parentCoordinator: TabCoordinatorObject
 
     // MARK: Initialization
 

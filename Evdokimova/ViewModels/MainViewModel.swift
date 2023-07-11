@@ -15,12 +15,14 @@ class MainViewModel: ObservableObject {
     @Published var categories = Categories(сategories: [])
     
     private unowned let coordinator: MainViewCoordinatorObject
-    var categoriesSubscription: AnyCancellable?
+    private let categoriesService = CategoriesService()
+    private var cancellables = Set<AnyCancellable>()
     
     // MARK: Initialization
     
     init(coordinator: MainViewCoordinatorObject) {
         self.coordinator = coordinator
+        addSubscribers()
     }
     
     // MARK: Open selected category
@@ -29,8 +31,15 @@ class MainViewModel: ObservableObject {
         self.coordinator.open(category: category)
     }
     
-    // MARK: Get categories using NetworkManager
+    private func addSubscribers() {
+        categoriesService.$categories
+            .sink { [weak self] categories in
+                self?.categories = categories
+            }.store(in: &cancellables)
+    }
     
+    // MARK: Get categories using NetworkManager
+    /*
     func getCategories() async {
         guard let url = URL(string: "https://run.mocky.io/v3/058729bd-1402-4578-88de-265481fd7d54") else { return }
         categoriesSubscription = NetworkManager.downdlowad(url: url)
@@ -39,5 +48,6 @@ class MainViewModel: ObservableObject {
                 self?.categories = returnedCategories
                 self?.categoriesSubscription?.cancel()                
             })
-    }    
+    }
+     */
 }

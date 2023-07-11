@@ -32,10 +32,6 @@ struct MainView: View {
                     .onNavigation { viewModel.open(category) }
                 }
             }
-            .task {
-                // MARK: Get categories using network manager
-                await viewModel.getCategories()
-            }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
         }

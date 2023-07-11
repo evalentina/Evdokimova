@@ -28,12 +28,6 @@ struct SelectedCategoryView<DetailModifier: ViewModifier>: View {
             dishes
             
         }
-        .task {
-            
-            // MARK: Get dishes using network manager
-            
-            viewModel.getDishes()
-        }
         
         // MARK: NavigationBar configuration
         

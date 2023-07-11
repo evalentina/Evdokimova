@@ -9,7 +9,9 @@ import Foundation
 import Combine
 
 class NetworkManager {
+    
     enum NetworkError : Error {
+        
         case badURLResponse(_ url: URL)
         case unknown
         
@@ -22,6 +24,7 @@ class NetworkManager {
             }
         }
     }
+    
     static func downdlowad(url : URL) -> AnyPublisher<Data, Error>  {
         return URLSession.shared.dataTaskPublisher(for: url)
             .subscribe(on: DispatchQueue.global(qos: .default))
